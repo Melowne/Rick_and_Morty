@@ -1,0 +1,1 @@
+# Validierungsaufgabe zur RickandMortyApi
