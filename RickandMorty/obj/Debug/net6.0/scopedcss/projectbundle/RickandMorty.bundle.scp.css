@@ -1,0 +1,49 @@
+/* _content/RickandMorty/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-dj1ul6omru] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-dj1ul6omru] {
+  color: #0077cc;
+}
+
+.btn-primary[b-dj1ul6omru] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-dj1ul6omru], .nav-pills .show > .nav-link[b-dj1ul6omru] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-dj1ul6omru] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-dj1ul6omru] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-dj1ul6omru] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-dj1ul6omru] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-dj1ul6omru] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Charaktere";
+}
+
+   <div class="text-white text-center jumbotron jumbotron-fluid bg-dark">
+  <div class="container">
+    <h1 class="display-4">Charaktere</h1>
+    <hr />
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label  class="control-label">Spezies:</label>
+            <select name="spezies" id="spezies" class="form-control" asp-items="@ViewBag.spezies"></select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label  class="control-label">Geschlecht:</label>
+            <select  name="geschlecht" id="geschlecht" class="form-control" asp-items="@ViewBag.geschlecht"></select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label  class="control-label">Episode:</label>
+                <select  name="episode" id="episode" class="form-control" asp-items="@ViewBag.episode"></select>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label  class="control-label">Herkunft:</label>
+            <select name="herkunft" id="herkunft" class="form-control" asp-items="@ViewBag.herkunft"></select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label  class="control-label">Status:</label>
+            <select  name="status" id="status" class="form-control" asp-items="@ViewBag.status"></select>
+            </div>
+        </div>
+            <div class="col-md-4">
+            <div class="form-group">
+                <label  class="control-label">Aufenthaltsort:</label>
+            <select name="ort" id="ort" class="form-control" asp-items="@ViewBag.ort"></select>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+     <button onclick="fillcharTable('@Url.Action("getCharacters")','@Url.Action("getCharacter")')"  class="btn btn-light">Suchen</button>
+     <hr />
+     <div class="col-12">
+     <table   id="chartable"   class="table table-bordered table-striped table-hover table-image invisible">
+        <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Spezies</th>
+            <th>Geschlecht</th>
+            <th>Herkunft</th>
+            <th>Episoden gesamt</th>
+            <th>Mehr</th>
+        </tr>
+        </thead>
+        <tbody  id="tBody"></tbody>
+    </table>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modaltitle"></h5>
+        <button type="button" onclick="closeClick()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body">
+          <img id="modalimg" class="img-fluid" src="" />
+          <div id="name"></div>
+          <div id="species"></div>
+          <div id="gender"></div>
+          <div id="statuss" ></div>
+          <div id="origin"></div>
+          <div id="location"></div>
+     </div>
+         <div class="container">
+<b>Episoden mitgespielt:</b>
+<ul id="epischar" class="list-group list-group-flush">
+</ul>
+</div>
+      <div class="modal-footer">
+        <div class="container">
+        <button type="button" onclick="exitmodal()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+   </div>  
+    </div>
+    </div>
+  </div>
+</div>
+
+<script src="~/js/characters.js" type="text/javascript"></script>

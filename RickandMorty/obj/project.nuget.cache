@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "FZivTzK9e+PXbZMBChKCyDd7pGEolczDZoLmdD7ohuwOvLvlLtJ3cgZkqPyOakh0OPnzIzMyS4w7GH9CIIyRVQ==",
+  "success": true,
+  "projectFilePath": "E:\\Workspacesc#\\Aspcore\\Rick_and_Morty\\RickandMorty\\RickandMorty.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Melowne\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
