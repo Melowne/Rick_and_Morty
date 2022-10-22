@@ -37,7 +37,6 @@
                         $.ajax({
                             type: "GET",
                             url: getCharacter,
-                            dataType: "json",
                             data: { id: e.target.value },
                             success: function (data) {
                                 $("#modal").modal('show');

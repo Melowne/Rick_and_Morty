@@ -12,6 +12,7 @@ namespace RickandMorty.Controllers
     {
         private static Characters chars;
         private static Episoden epis;
+        private static Standorte orte;
 
         private HttpClient http;
         private HttpResponseMessage httpresp;
@@ -19,19 +20,30 @@ namespace RickandMorty.Controllers
         {
             http= new HttpClient();
             httpresp = new HttpResponseMessage();
+            //Character holen und anschliessend Gesamtlänge(count) der Response in len_char speichern 
+            httpresp = http.GetAsync("https://rickandmortyapi.com/api/character").Result;
+            var len_char = (JsonConvert.DeserializeObject<Characters>(httpresp.Content.ReadAsStringAsync().Result));
+            chars = JsonConvert.DeserializeObject<Characters>(getObjects(len_char.info.count, "character"));
+
+            //Episoden holen und anschliessend Gesamtlänge(count) der Response in len_epi speichern 
+            httpresp = http.GetAsync("https://rickandmortyapi.com/api/episode").Result;
+            var len_epi = (JsonConvert.DeserializeObject<Episoden>(httpresp.Content.ReadAsStringAsync().Result));
+            epis = JsonConvert.DeserializeObject<Episoden>(getObjects(len_epi.info.count, "episode"));
+
+            //Standorte holen und anschliessend Gesamtlänge(count) der Response in len_ort speichern 
+            httpresp = http.GetAsync("https://rickandmortyapi.com/api/location").Result;
+            var len_ort = (JsonConvert.DeserializeObject<Standorte>(httpresp.Content.ReadAsStringAsync().Result));
+            orte = JsonConvert.DeserializeObject<Standorte>(getObjects(len_ort.info.count, "location"));
+
         }
-      
+
         public IActionResult Index()
         {
             return View();
         }
         public IActionResult Charaktere()
         {
-            //Character holen und anschliessend Gesamtlänge(count) der Response in len_char speichern 
-            httpresp = http.GetAsync("https://rickandmortyapi.com/api/character").Result;
-            var len_char = (JsonConvert.DeserializeObject<Characters>(httpresp.Content.ReadAsStringAsync().Result));
-            chars = JsonConvert.DeserializeObject<Characters>(getObjects(len_char.info.count, "character"));
-
+         
             List<SelectListItem> spezies = new List<SelectListItem>();
             var spez = chars.root.Select(x => new { x.species }).Distinct().ToList();
             spez.ToList().ForEach(x => spezies.Add(new SelectListItem() { Value = x.species + "", Text = x.species + "" }));
@@ -62,11 +74,7 @@ namespace RickandMorty.Controllers
             vort.ToList().ForEach(x => ort.Add(new SelectListItem() { Value = x.name + "", Text = x.name + "" }));
             ViewBag.ort = ort;
 
-            //Episoden holen und anschliessend Gesamtlänge(count) der Response in len_epi speichern 
-            httpresp = http.GetAsync("https://rickandmortyapi.com/api/episode").Result;
-            var len_epi = (JsonConvert.DeserializeObject<Episoden>(httpresp.Content.ReadAsStringAsync().Result));
-            epis = JsonConvert.DeserializeObject<Episoden>(getObjects(len_epi.info.count, "episode"));
-
+          
 
             List<SelectListItem> episode = new List<SelectListItem>();
             episode.Add(new SelectListItem() { Value = "*", Text = "*" });
@@ -121,8 +129,57 @@ namespace RickandMorty.Controllers
 
         public IActionResult Standorte()
         {
+           
+
+            List<SelectListItem> typ = new List<SelectListItem>();
+            var typ_ = orte.root.Select(x => new { x.type }).Distinct().ToList();
+            typ_.ToList().ForEach(x => typ.Add(new SelectListItem() { Value = x.type + "", Text = x.type + "" }));
+            typ.Add(new SelectListItem() { Value = "*", Text = "*" });
+            ViewBag.typ = typ;
+
+            List<SelectListItem> dimension = new List<SelectListItem>();
+            dimension.Add(new SelectListItem() { Value = "*", Text = "*" });
+            var dimension_ = orte.root.Select(x => new { x.dimension }).Distinct().ToList();
+            dimension_.ToList().ForEach(x => dimension.Add(new SelectListItem() { Value = x.dimension + "", Text = x.dimension + "" }));
+            ViewBag.dimension = dimension;
+
             return View();
         }
+        [HttpGet]
+        public IActionResult getStandorte(string typ, string dimension)
+        {
+
+            var orte_ = orte.root.Where(x => (x.type == typ || typ == "*") && (x.dimension == dimension || dimension == "*")
+            ).Select(x => new
+            {
+                id = x.id,
+                name = x.name,
+                typ = x.type,
+                dimension=x.dimension,
+                residents = x.residents.Count
+            }).ToList();
+
+            return Ok(orte_);
+        }
+
+        [HttpGet]
+        public IActionResult getStandort(string id)
+        {
+            var ort = orte.root.Where(x => x.id + "" == id).Select(
+                x => new
+                {
+                    name = x.name,
+                    typ = x.type,
+                    dimension = x.dimension,
+                    type = x.type,
+                    residents = chars.root,
+                    resident = x.residents
+                }).ToList();
+
+
+            return Ok(ort);
+        }
+
         public IActionResult Episoden()
         {
             return View();

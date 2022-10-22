@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YUy2N9Gg8gEjww6WhyaWxrkEoeOaSe/QL/ZmAtxgCuE=",
+  "Hash": "ZA1jscAuYKZlBSMIollg27Cqd9MiaP1yapdlCF9f1Ns=",
   "Source": "RickandMorty",
   "BasePath": "_content/RickandMorty",
   "Mode": "Default",
@@ -51,12 +51,12 @@
       "OriginalItemSpec": "E:\\Workspacesc#\\Aspcore\\Rick_and_Morty\\RickandMorty\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\RickandMorty.bundle.scp.css"
     },
     {
-      "Identity": "E:\\Workspacesc#\\Aspcore\\Rick_and_Morty\\RickandMorty\\wwwroot\\assets\\home1.jpg",
+      "Identity": "E:\\Workspacesc#\\Aspcore\\Rick_and_Morty\\RickandMorty\\wwwroot\\assets\\home.jpg",
       "SourceId": "RickandMorty",
       "SourceType": "Discovered",
       "ContentRoot": "E:\\Workspacesc#\\Aspcore\\Rick_and_Morty\\RickandMorty\\wwwroot\\",
       "BasePath": "_content/RickandMorty",
-      "RelativePath": "assets/home1.jpg",
+      "RelativePath": "assets/home.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -65,7 +65,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\home1.jpg"
+      "OriginalItemSpec": "wwwroot\\assets\\home.jpg"
     },
     {
       "Identity": "E:\\Workspacesc#\\Aspcore\\Rick_and_Morty\\RickandMorty\\wwwroot\\css\\jquery.dataTables.min.css",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\jquery.dataTables.min.js"
+    },
+    {
+      "Identity": "E:\\Workspacesc#\\Aspcore\\Rick_and_Morty\\RickandMorty\\wwwroot\\js\\orte.js",
+      "SourceId": "RickandMorty",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Workspacesc#\\Aspcore\\Rick_and_Morty\\RickandMorty\\wwwroot\\",
+      "BasePath": "_content/RickandMorty",
+      "RelativePath": "js/orte.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\orte.js"
     },
     {
       "Identity": "E:\\Workspacesc#\\Aspcore\\Rick_and_Morty\\RickandMorty\\wwwroot\\js\\site.js",
