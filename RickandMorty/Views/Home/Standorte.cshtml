@@ -23,7 +23,7 @@
         </div>
     </div>
     <hr />
-    <button onclick="filllocationTable('@Url.Action("getStandorte")','@Url.Action("getStandort")')" class="btn btn-light">Suchen</button>
+    <button onclick="filllocationTable('@Url.Action("getStandorte")','@Url.Action("getStandort")','@Url.Action("getCharacter")')" class="btn btn-light">Suchen</button>
         <hr />
      <div class="col-12">
      <table   id="locationtable"   class="table table-bordered table-striped table-hover table-image invisible">
@@ -40,32 +40,6 @@
     </table>
     </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" >
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modaltitle"></h5>
-        <button type="button" onclick="closeClick()" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="modal-body">
-          <div id="name"></div>
-          <div id="typp"></div>
-          <div id="dimensionn"></div>
-     </div>
-    <div class="container">
-<b>Bewohnt von:</b>
-<ul id="chars" class="list-group list-group-flush">
-</ul>
-</div>
-      <div class="modal-footer">
-        <div class="container">
-        <button type="button" onclick="exitmodal()" class="btn btn-secondary" data-dismiss="modal">Close</button>
-   </div>  
-    </div>
-    </div>
-  </div>
-</div>
+<partial name="_ModalsPartial" />
 <script src="~/js/orte.js" type="text/javascript"></script>
+<script src="~/js/characters.js" type="text/javascript"></script>

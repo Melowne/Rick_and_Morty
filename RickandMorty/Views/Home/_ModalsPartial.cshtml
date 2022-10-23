@@ -1,0 +1,61 @@
+﻿<!-- Character Modal -->
+<div class="modal fade" id="modal-char" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modaltitle-char"></h5>
+        <button type="button" onclick="closeClickChar()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body-char">
+          <img id="modalimg" class="img-fluid" src="" />
+          <div id="name-char"></div>
+          <div id="species"></div>
+          <div id="gender"></div>
+          <div id="statuss" ></div>
+          <div id="origin"></div>
+          <div id="locationchar"></div>
+     </div>
+         <div class="container">
+<b>Episoden mitgespielt:</b>
+<ul id="epischar" class="list-group list-group-flush">
+</ul>
+</div>
+      <div class="modal-footer">
+        <div class="container">
+        <button type="button" onclick="exitmodalChar()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+   </div>  
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- Standort Modal -->
+<div  class="modal fade" id="modal-ort" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modaltitle-ort"></h5>
+        <button type="button" onclick="closeClickOrt()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body-ort">
+          <div id="name-ort"></div>
+          <div id="typp"></div>
+          <div id="dimensionn"></div>
+     </div>
+    <div class="container">
+<b>Bewohnt von:</b>
+<ul id="chars" class="list-group list-group-flush">
+</ul>
+</div>
+      <div class="modal-footer">
+        <div class="container">
+        <button type="button" onclick="exitmodalOrt()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+   </div>  
+    </div>
+    </div>
+  </div>
+</div>

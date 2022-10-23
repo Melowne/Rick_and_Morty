@@ -1,5 +1,7 @@
-﻿function filllocationTable(getStandorte, getStandort) {
+﻿var ortaktiv = false;
+function filllocationTable(getStandorte, getStandort, getCharacter) {
     $("#locationtable").DataTable().destroy();
+    ortaktiv = true;
     $("#tBody").empty();
     $.ajax({
         type: "get",
@@ -26,7 +28,7 @@
 
                     $('#' + Id).on('click', function (e) {
                         ///modal clearen
-                        $("#modal-body").children('div').each(function () {
+                        $("#modal-body-ort").children('div').each(function () {
                             if ($(this).text) {
                                 $(this).text("");
                             }
@@ -37,18 +39,23 @@
                             url: getStandort,
                             data: { id: e.target.value },
                             success: function (data) {
-                                debugger;
-                                $("#modal").modal('show');
-                                $("#modaltitle").text(data[0].name);
-                                $("#name").append("<b>Name: <b/>", data[0].name);
+                                $("#modal-ort").modal('show');
+                                $("#modaltitle-ort").text(data[0].name);
+                                $("#name-ort").append("<b>Name: <b/>", data[0].name);
                                 $("#typp").append("<b>Typ: <b/>", data[0].typ);
                                 $("#dimensionn").append("<b>Dimension: <b/>", data[0].dimension);
                                 //jeweilige Charactere dem entsprechenden Ort zuordnen
                                 $("#chars").empty();
                                 for (var i = 0; i < data[0].residents.length; i++) {
-                                    if (data[0].resident.includes(data[0].residents[i].url))
-                                        $("#chars").append("<li class='list-group-item'><img style='width:10%;height:10%' src='" + data[0].residents[i].image+"' class='img - thumbnail img - fluid'> "
-                                            + data[0].residents[i].name + "</li");
+                                    if (data[0].resident.includes(data[0].residents[i].url)) { 
+                                        var Id = data[0].residents[i].id;
+                                        $("#chars").append("<li class='list-group-item'>" +
+                                          "<button value=" + Id + " id='" + Id + "' style = 'background-color:transparent;border:none;text-align:left;display:block;display:inline-block' > <img style='width:10%;height:10%' src='" + data[0].residents[i].image+"' class='img - thumbnail img - fluid'> "
+                                            + data[0].residents[i].name + "</button></li>");
+
+                                            getchar(Id, getCharacter);
+
+                                    }
                                 }
                             }
                         });
@@ -60,12 +67,12 @@
 }
 
 
-$("#modal").click(function () {
-    $("#modal").modal('hide');
+$("#modal-ort").click(function () {
+    $("#modal-ort").modal('hide');
 });
-function exitmodal() {
-    $("#modal").modal('hide');
+function exitmodalOrt() {
+    $("#modal-ort").modal('hide'); ortaktiv = false;
 }
-function closeClick() {
-    $("#modal").modal('hide');
+function closeClickOrt() {
+    $("#modal-ort").modal('hide'); ortaktiv = false;
 }
