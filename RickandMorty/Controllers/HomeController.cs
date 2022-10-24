@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using RickandMorty.Models;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 
@@ -182,9 +181,48 @@ namespace RickandMorty.Controllers
 
         public IActionResult Episoden()
         {
+            List<SelectListItem> staffel = new List<SelectListItem>();
+            staffel.Add(new SelectListItem() { Value = "*", Text = "*" });
+
+            var stf = epis.root.Select(x => new {  stf =x.episode.Substring(0,3) }).Distinct().ToList();
+            stf.ToList().ForEach(x => staffel.Add(new SelectListItem() { Value = x.stf, Text = "S" + x.stf[2] + "" }));
+            ViewBag.staffel = staffel;
+
             return View();
         }
+        [HttpGet]
+        public IActionResult getEpisoden(string staffel)
+        {
 
+            var epis_ = epis.root.Where(x => (x.episode.Substring(0,3) == staffel || staffel == "*")
+            ).Select(x => new
+            {
+                id = x.id,
+                name = x.name,
+                episode = x.episode,
+                airdate = x.air_date,
+                characters = x.characters.Count
+            }).ToList();
+
+            return Ok(epis_);
+        }
+
+        [HttpGet]
+        public IActionResult getEpi(string id)
+        {
+            var epi = epis.root.Where(x => x.id + "" == id).Select(
+                x => new
+                {
+                    name = x.name,
+                    episode = x.episode,
+                    airdate = x.air_date,
+                    characters = chars.root,
+                    character = x.characters
+                }).ToList();
+
+
+            return Ok(epi);
+        }
         private string getObjects(int len, string model)
         {   //alle Ids in einem Teilstring speichern und anschliessend dem Querystring anfügen 
             string querysubstring = "";

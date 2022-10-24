@@ -47,6 +47,7 @@ function getchar(Id, getCharacter) {
             data: { id: e.target.value },
             success: function (data) {
                 $("#modal-ort").modal('hide');
+                $("#modal-epi").modal('hide');
                 $("#modal-char").modal('show');
                 $("#modalimg").attr('src', data[0].image);
                 $("#modaltitle-char").text(data[0].name);
@@ -55,13 +56,12 @@ function getchar(Id, getCharacter) {
                 $("#name-char").append("<b>Name: <b/>", data[0].name);
                 $("#statuss").append("<b>Status: <b/>", data[0].status);
                 $("#origin").append("<b>Herkunft: <b/>", data[0].origin);
-                $("#location").append("<b>Aufenthaltsort: <b/>", data[0].location);
+                $("#locationchar").append("<b>Aufenthaltsort: <b/>", data[0].location);
                 //jeweilige Episoden dem entsprechenden Character zuordnen
                 $("#epischar").empty();
                 for (var i = 0; i < data[0].epis.length; i++) {
                     if (data[0].epi.includes(data[0].epis[i].url))
                         $("#epischar").append("<li class='list-group-item'>" + data[0].epis[i].episode + " " + data[0].epis[i].name + "</li>");
-
                 }
             }
 
@@ -69,16 +69,22 @@ function getchar(Id, getCharacter) {
 
     });
 }
-$("#modal-char").click(function () {
-    $("#modal-char").modal('hide');
-});
+
 function exitmodalChar() {
     $("#modal-char").modal('hide');
-    if (ortaktiv)
+    if (ortmodalaktiv)
         $("#modal-ort").modal('show');
+
+    else if (episodenmodalaktiv)
+        $("#modal-epi").modal('show');
+
 }
+
 function closeClickChar() {
-    $("#modal-char").modal('hide');
-    if (ortaktiv)
+   $("#modal-char").modal('hide');
+    if (ortmodalaktiv) 
         $("#modal-ort").modal('show');
+    
+    else if (episodenmodalaktiv)  
+        $("#modal-epi").modal('show');
 }

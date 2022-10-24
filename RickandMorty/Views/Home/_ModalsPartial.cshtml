@@ -31,7 +31,7 @@
   </div>
 </div>
 
-<!-- Standort Modal -->
+      <!-- Standort Modal -->
 <div  class="modal fade" id="modal-ort" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" >
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -54,6 +54,35 @@
       <div class="modal-footer">
         <div class="container">
         <button type="button" onclick="exitmodalOrt()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+   </div>  
+    </div>
+    </div>
+  </div>
+</div>
+
+      <!-- Episoden Modal -->
+<div  class="modal fade" id="modal-epi" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modaltitle-epi"></h5>
+        <button type="button" onclick="closeClickEpi()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body-epi">
+          <div id="epi"></div>
+          <div id="epi-name"></div>
+          <div id="airdate"></div>
+     </div>
+    <div class="container">
+<b>Mitgespielt:</b>
+<ul id="charsepi" class="list-group list-group-flush">
+</ul>
+</div>
+      <div class="modal-footer">
+        <div class="container">
+        <button type="button" onclick="exitmodalEpi()" class="btn btn-secondary" data-dismiss="modal">Close</button>
    </div>  
     </div>
     </div>

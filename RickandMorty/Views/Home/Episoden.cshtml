@@ -7,3 +7,35 @@
     <hr />
   </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label  class="control-label">Staffel:</label>
+            <select name="staffel" id="staffel" class="form-control" asp-items="@ViewBag.staffel"></select>
+            </div>
+        </div>
+    </div>
+        <hr />
+    <button onclick="fillepisTable('@Url.Action("getEpisoden")','@Url.Action("getEpi")','@Url.Action("getCharacter")')" class="btn btn-light">Suchen</button>
+        <hr />
+     <div class="col-12">
+     <table   id="epistable"   class="table table-bordered table-striped table-hover table-image invisible">
+        <thead class="thead-dark">
+        <tr>
+            <th>Episode</th>
+            <th>Name</th>
+            <th>Erstausstrahlung</th>
+            <th>Charakter insgesamt</th>
+            <th>Mehr</th>
+        </tr>
+        </thead>
+        <tbody  id="tBody"></tbody>
+    </table>
+    </div>
+</div>
+<partial name="_ModalsPartial" />
+<script src="~/js/episoden.js" type="text/javascript"></script>
+<script src="~/js/characters.js" type="text/javascript"></script>
+<script src="~/js/orte.js" type="text/javascript"></script>

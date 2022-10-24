@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZA1jscAuYKZlBSMIollg27Cqd9MiaP1yapdlCF9f1Ns=",
+  "Hash": "3x+mcwkQjLFHFwvHZ08+HdwvYPPjmc14Ba+8aVSyGQY=",
   "Source": "RickandMorty",
   "BasePath": "_content/RickandMorty",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\characters.js"
+    },
+    {
+      "Identity": "E:\\Workspacesc#\\Aspcore\\Rick_and_Morty\\RickandMorty\\wwwroot\\js\\episoden.js",
+      "SourceId": "RickandMorty",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Workspacesc#\\Aspcore\\Rick_and_Morty\\RickandMorty\\wwwroot\\",
+      "BasePath": "_content/RickandMorty",
+      "RelativePath": "js/episoden.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\episoden.js"
     },
     {
       "Identity": "E:\\Workspacesc#\\Aspcore\\Rick_and_Morty\\RickandMorty\\wwwroot\\js\\jquery.dataTables.min.js",

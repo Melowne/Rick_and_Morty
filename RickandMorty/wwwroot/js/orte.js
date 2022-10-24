@@ -1,7 +1,7 @@
-﻿var ortaktiv = false;
+﻿var ortmodalaktiv = false;
 function filllocationTable(getStandorte, getStandort, getCharacter) {
     $("#locationtable").DataTable().destroy();
-    ortaktiv = true;
+    
     $("#tBody").empty();
     $.ajax({
         type: "get",
@@ -48,8 +48,8 @@ function filllocationTable(getStandorte, getStandort, getCharacter) {
                                 $("#chars").empty();
                                 for (var i = 0; i < data[0].residents.length; i++) {
                                     if (data[0].resident.includes(data[0].residents[i].url)) { 
-                                        var Id = data[0].residents[i].id;
-                                        $("#chars").append("<li class='list-group-item'>" +
+                                            var Id = data[0].residents[i].id;
+                                            $("#chars").append("<li class='list-group-item'>" +
                                           "<button value=" + Id + " id='" + Id + "' style = 'background-color:transparent;border:none;text-align:left;display:block;display:inline-block' > <img style='width:10%;height:10%' src='" + data[0].residents[i].image+"' class='img - thumbnail img - fluid'> "
                                             + data[0].residents[i].name + "</button></li>");
 
@@ -59,6 +59,7 @@ function filllocationTable(getStandorte, getStandort, getCharacter) {
                                 }
                             }
                         });
+                        ortmodalaktiv = true;
                     });
                 }
             }
@@ -66,13 +67,9 @@ function filllocationTable(getStandorte, getStandort, getCharacter) {
     });
 }
 
-
-$("#modal-ort").click(function () {
-    $("#modal-ort").modal('hide');
-});
 function exitmodalOrt() {
-    $("#modal-ort").modal('hide'); ortaktiv = false;
+    $("#modal-ort").modal('hide'); ortmodalaktiv = false;
 }
 function closeClickOrt() {
-    $("#modal-ort").modal('hide'); ortaktiv = false;
+    $("#modal-ort").modal('hide'); ortmodalaktiv = false;
 }
